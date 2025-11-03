@@ -17,7 +17,7 @@ class PDFGenerator:
         Gera um PDF com os gastos informados.
         - expenses: lista de objetos Expense
         """
-        doc = SimpleDocTemplate(self.filename, pagesize=A4)
+        doc = SimpleDocTemplate(str(self.filename), pagesize=A4)
         elements = []
         styles = getSampleStyleSheet()
         

@@ -49,9 +49,21 @@ pip install -r requirements.txt
 python app.py 
 ```
 ---
+## Criar um executável (.exe)
+1. **Instale as depedências:**
+```bash
+pip install pyinstaller
+```
+2. **Rode o seguinte código:**
+```bash
+pyinstaller --onefile --noconsole app.py
+```
+- O executável será gerado na pasta dist.
+- Os relátórios e os gastos do JSON serão gerados nela também.
+---
 ## Requisitos / Considerações
  - O JSON será criado automaticamente se não existir.
- - O PDF é gerado como **relatorio_gastos.pdf** no diretório do projeto.
+ - O PDF é gerado como **relatorio.pdf** no diretório do projeto.
  - Categorias devem ser informadas pelo ID mostrado na interface.
  - IDs dos gastos são únicos e atribuídos automaticamente.
  - O PDF inclui o somatório total dos gastos.
