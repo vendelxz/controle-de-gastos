@@ -49,7 +49,7 @@ pip install -r requirements.txt
 python app.py 
 ```
 ---
-## Criar um executável (.exe)
+## Criar um executável (.exe) - OPCIONAL
 1. **Instale as depedências:**
 ```bash
 pip install pyinstaller
