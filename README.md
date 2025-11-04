@@ -18,7 +18,7 @@ Sistema simples de gerenciamento de gastos mensais com interface gráfica, armaz
 - **Gerar relatório em PDF:**  
   Cria um PDF listando todos os gastos e o somatório total, organizado por ID, descrição, valor e categoria.  
 
-- **Gerar relátorio baseado nas categorias**
+- **Gerar relátorio baseado nas categorias**: 
   Cria um PDF listando todos os gastos baseados nas categorias disponíveis e 
   com gastos cadastrados já.
 
@@ -42,7 +42,7 @@ Sistema simples de gerenciamento de gastos mensais com interface gráfica, armaz
 
 ---
 ## Como usar
-3. **Criar e ativar as variáveis de ambiente:**
+1. **Criar e ativar as variáveis de ambiente:**
 
 ```bash
 python -m venv .venv
