@@ -18,6 +18,10 @@ Sistema simples de gerenciamento de gastos mensais com interface gráfica, armaz
 - **Gerar relatório em PDF:**  
   Cria um PDF listando todos os gastos e o somatório total, organizado por ID, descrição, valor e categoria.  
 
+- **Gerar relátorio baseado nas categorias**
+  Cria um PDF listando todos os gastos baseados nas categorias disponíveis e 
+  com gastos cadastrados já.
+
 - **Validação de entradas:**  
   Garante que valores, descrições e categorias sejam válidos antes de salvar.  
 
@@ -38,13 +42,20 @@ Sistema simples de gerenciamento de gastos mensais com interface gráfica, armaz
 
 ---
 ## Como usar
+3. **Criar e ativar as variáveis de ambiente:**
 
-1. **Instalar dependências:**  
+```bash
+python -m venv .venv
+```
+```bash
+.\.venv\Scripts\Activate
+```
+2. **Instalar dependências:**  
 
 ```bash
 pip install -r requirements.txt 
 ```
-2. **Rodar o programa**
+3. **Rodar o programa**
 ```bash
 python app.py 
 ```
@@ -64,6 +75,7 @@ pyinstaller --onefile --noconsole app.py
 ## Requisitos / Considerações
  - O JSON será criado automaticamente se não existir.
  - O PDF é gerado como **relatorio.pdf** no diretório do projeto.
+ - Os PDFs por categoria serão gerados na pasta **relatorios_por_categoria**
  - Categorias devem ser informadas pelo ID mostrado na interface.
  - IDs dos gastos são únicos e atribuídos automaticamente.
  - O PDF inclui o somatório total dos gastos.

@@ -6,15 +6,17 @@ from storage import StorageManager
 from validator import Validator
 from pdf_exporter import PDFGenerator
 from models import Expense, Category
+from report_manager import GeradorRelatoriosCategoria
 
 
 class AppGUI:
     """Interface gráfica principal do sistema de gastos."""
 
-    def __init__(self, storage: StorageManager, pdf_generator: PDFGenerator, validator: Validator):
+    def __init__(self, storage: StorageManager, pdf_generator: PDFGenerator, validator: Validator, report_manager: GeradorRelatoriosCategoria) :
         self.storage = storage
         self.pdf_generator = pdf_generator
         self.validator = validator
+        self.report_manager = report_manager    
 
         self.root = tk.Tk()
         self.root.title("Controle de Gastos Mensais")
@@ -120,6 +122,27 @@ class AppGUI:
         gastos = self.storage.load_all()
         self.pdf_generator.generate_pdf(gastos)
         messagebox.showinfo("PDF Gerado", "Relatório gerado com sucesso!")
+
+        def gerar_relatorios_categoria(self):
+         """Chama o gerenciador para criar relatórios por categoria."""
+        try:
+            # Chama a lógica que já foi testada!
+            count = self.report_manager.gerar_todos_os_relatorios()
+            
+            if count > 0:
+                # Pega o nome do diretório da instância do manager
+                diretorio = self.report_manager.diretorio_relatorios
+                messagebox.showinfo(
+                    "Sucesso",
+                    f"{count} relatórios gerados com sucesso!\n"
+                    f"Salvos na pasta: {diretorio}"
+                )
+            else:
+                messagebox.showinfo("Aviso", "Não há gastos registrados para gerar relatórios por categoria.")
+
+        except Exception as e:
+            # Captura erros de permissão de pasta ou outros
+            messagebox.showerror("Erro ao Gerar Relatórios", str(e))
 
     def run(self):
         """Inicia o loop principal da GUI."""
